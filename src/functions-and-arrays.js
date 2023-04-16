@@ -51,34 +51,32 @@ function sum() {}*/
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
-    let sum = 0;
-    if (numbersAvg.length === 0) {
-      return null;
-    }
-    else { 
-      for (let i=0 ; i <numbersAvg.length; i++){
-      sum = sum + numbersAvg[i];
-    }
-    return sum/numbersAvg.length;
+  if (numbersAvg.length === 0) {
+    return null;
   }
+
+  let sum = 0;
+  for (let i = 0; i < numbersAvg.length; i++) {
+    sum = sum + numbersAvg[i];
+  }
+  return sum / numbersAvg.length;
 }
+  
   
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(wordsArr) { 
-  let sum = 0;
-    if (wordsArr.length === 0) {
-      return null;
-    }
-    else { 
-      for (let i=0 ; i <wordsArr.length; i++){
-        sum = sum + wordsArr[i];
-      }
-      return sum/wordsArr.length;
-    }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
   }
+  let sumLengthWords = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    sumLengthWords = sumLengthWords + wordsArr[i].length;
+  }
+  return sumLengthWords / wordsArr.length;
+}
 
 
 // Bonus - Iteration #4.1
@@ -99,14 +97,36 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsWithDuplicate) {
+  if (wordsWithDuplicate.length === 0){
+    return null;
+  }
+    let wordsWithoutDuplicate = []; 
+    for (let i=0; i < wordsWithDuplicate.length ; i++) {
+      if (!wordsWithoutDuplicate.includes(wordsWithDuplicate[i])) {
+        wordsWithoutDuplicate.push(wordsWithDuplicate[i]);
+      }
+      
+    }
+    return wordsWithoutDuplicate;
+  }
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, palabra) {
+  if (array.length === 0){
+    return null;
+  } 
+  if (array.includes(palabra)) {
+    return true;
+  } else {
+    return false;
+  }
+
+}
 
 
 
@@ -125,7 +145,21 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  if (array.length === 0 || array.indexOf(word) === -1 ) {
+    return 0;
+  } 
+  const finalArr =[];
+  let i = array.indexOf(word);
+  while ( i !== -1) {
+    finalArr.push(i);
+    i = array.indexOf(word, i+1);
+  }
+return finalArr.length;
+
+}
+
+
 
 
 
